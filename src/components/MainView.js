@@ -3,6 +3,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../actions';
+import EntryList from './EntryList';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -36,7 +37,7 @@ const MainView = () => {
                     <Grid className={clsx(classes.item, classes.feature)} item xs={6}>Choose letter</Grid>
                     <Grid className={clsx(classes.item, classes.feature)} item xs={6}>Choose search language</Grid>
                     <Grid className={clsx(classes.item, classes.content)} item xs={4}>
-                        {Array.isArray(entries) && entries.map(entry => (<h3>{entry.word}</h3>))}
+                        <EntryList entries={entries} />
                     </Grid>
                     <Grid className={clsx(classes.item, classes.content)} item xs={8}>Field for entry definition</Grid>
                 </Grid>
