@@ -10,13 +10,13 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const EntryList = ({entries}) => {
+const EntryList = ({entries, selectEntry}) => {
     const classes = useStyles();
 
     return (
         <List className={classes.entryList} component="div">
             {Array.isArray(entries) && entries.map(entry => (
-                <ListItem button key={entry.word}>
+                <ListItem button key={entry.word} onClick={() => selectEntry(entry)}>
                     {entry.word}
                 </ListItem>
             ))}

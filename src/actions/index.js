@@ -3,7 +3,6 @@ const getEntries = entries => ({type: GET_ENTRIES, entries});
 
 const fetchEntries = () => dispatch => {
     const entries = require('../mocks/entries');
-    console.log(entries)
     dispatch(getEntries(entries));
 };
 
