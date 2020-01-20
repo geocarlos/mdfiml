@@ -11,6 +11,8 @@
 # production
 /build
 /dist
+/src/assets/images/*.png
+/src/assets/audio/*.wav
 
 # misc
 .DS_Store
