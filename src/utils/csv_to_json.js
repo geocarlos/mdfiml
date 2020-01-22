@@ -42,3 +42,5 @@ const main = () => {
 if (require.main === module) {
     main();
 }
+
+export default csvToJson;
