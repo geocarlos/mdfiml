@@ -7,6 +7,9 @@ import EntryList from './EntryList';
 import Entry from './Entry';
 import LettersNav from './LettersNav';
 import getInitialLetters from '../utils/get_initial_letters';
+import Search from './Search';
+
+String.prototype.capitalize = function(){return this[0].toUpperCase() + this.substring(1);};
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -30,6 +33,9 @@ const MainView = () => {
     const [entry, setEntry] = React.useState({});
     const [entriesByLetter, setEntriesByLetter] = React.useState([]);
     const [letters, setLetters] = React.useState([]);
+    const [query, setQuery] = React.useState('');
+    const [language, setLanguage] = React.useState('taurepang');
+    const languages = ['taurepang', 'portuguese'];
 
     React.useEffect(() => {
         actions.fetchEntries()(dispatch);
@@ -50,6 +56,12 @@ const MainView = () => {
         const displayedEntries = entries.filter(e => e.word[0] === letter);
         setEntriesByLetter(displayedEntries);
         setEntry(displayedEntries[0])
+        setQuery('');
+    }
+
+    const filterEntries = query => {
+        const field = language === languages[0] ? 'word' : 'definition';
+        return entries.filter(entry => entry[field].toLowerCase().includes(query.toLowerCase()));
     }
 
     return (
@@ -60,9 +72,15 @@ const MainView = () => {
                     <Grid className={clsx(classes.item, classes.feature)} item xs={6}>
                         <LettersNav letters={letters} setEntries={setEntries}/>
                     </Grid>
-                    <Grid className={clsx(classes.item, classes.feature)} item xs={6}>Choose search language</Grid>
+                    <Grid className={clsx(classes.item, classes.feature)} item xs={6}>
+                        <Search 
+                            setQuery={setQuery}
+                            query={query}
+                            languages={languages}
+                            setLanguage={setLanguage} />
+                    </Grid>
                     <Grid className={clsx(classes.item, classes.content)} item xs={4}>
-                        <EntryList entries={entriesByLetter} selectEntry={setEntry} />
+                        <EntryList entries={query ? filterEntries(query) : entriesByLetter} selectEntry={setEntry} />
                     </Grid>
                     <Grid className={clsx(classes.item, classes.content)} item xs={8}>
                         <Entry entry={entry} />
