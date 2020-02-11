@@ -8,12 +8,33 @@ import Entry from './Entry';
 import LettersNav from './LettersNav';
 import getInitialLetters from '../utils/get_initial_letters';
 import Search from './Search';
+import headerImg from '../assets/images/pau_de_chuva.png';
 
 String.prototype.capitalize = function(){return this[0].toUpperCase() + this.substring(1);};
 
 const useStyles = makeStyles(theme => ({
     header: {
-        height: '12vh'
+        display: 'grid',
+        gridTemplateColumns: '30% 70%',
+        width: '100%',
+        height: '12vh',
+        justifyContent: 'center',
+        backgroundColor: '#e1e2ef'
+    },
+    headerText: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.5rem',
+        fontWeight: 'bold'
+
+    },
+    headerImg: {
+        height: '100%',
+        background: `url(${headerImg})`,
+        backgroundSize: '99%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center'
     },
     feature: {
         height: '7vh'
@@ -66,7 +87,10 @@ const MainView = () => {
 
     return (
         <Grid container>
-            <Grid className={clsx(classes.item, classes.header)} item xs={12}>Header</Grid>
+            <Grid className={classes.header} item xs={12}>
+                <div className={classes.headerImg}></div>
+                <div className={classes.headerText}>Dicionário Multimídia Taurepang-Português</div>
+            </Grid>
             <Grid className={classes.item} item xs={12}>
                 <Grid container>
                     <Grid className={clsx(classes.item, classes.feature)} item xs={6}>
@@ -82,7 +106,7 @@ const MainView = () => {
                     <Grid className={clsx(classes.item, classes.content)} item xs={4}>
                         <EntryList entries={query ? filterEntries(query) : entriesByLetter} selectEntry={setEntry} />
                     </Grid>
-                    <Grid className={clsx(classes.item, classes.content)} item xs={8}>
+                    <Grid className={classes.content} item xs={8}>
                         <Entry entry={entry} />
                     </Grid>
                 </Grid>

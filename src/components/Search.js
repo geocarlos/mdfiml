@@ -26,7 +26,7 @@ const Search = ({ setQuery, query, languages, setLanguage }) => {
 
     return (
         <div className={classes.root}>
-            <div className={classes.searchItem}>Search in: </div>
+            <div className={classes.searchItem}>Buscar em: </div>
             <div className={classes.searchItem}>
                 <Select onChange={event => setLanguage(event.target.value)} defaultValue={languages[0]}>
                     {languages.map((lang, i) => (

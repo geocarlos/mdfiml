@@ -303,11 +303,9 @@
         "grammar_info": "Sub",
         "definition": "Rato.",
         "example": "Ko'wamüdak munpö taure'pöda.",
-        "translation": "\"Ontem eu disse \"",
-        "e_audio": "\"rato\"",
-        "image": "\".\"",
-        "video": "munpö(rat)ex.wav",
-        "undefined": "munpö.png"
+        "translation": "\"Ontem eu disse \"rato\"",
+        "e_audio": "munpö(rat)ex.wav",
+        "image": "munpö.png"
     },
     {
         "word": "mu'ru",
@@ -426,11 +424,9 @@
         "grammar_info": "Sub",
         "definition": "Onça pintada.",
         "example": "\"Wadamoikö taato'da, wadamori menu ke i'chi e'nin.\"",
-        "translation": "\"Essa onça é chamada \"",
-        "e_audio": "\"wadamoikö\"",
-        "image": "\", porque a pele dela parece a do jabuti (\"",
-        "video": "\"wadamori\"",
-        "undefined": "wadamoikö.png"
+        "translation": "Essa onça é chamada \"wadamoikö\", porque a pele dela parece a do jabuti (\"wadamori\")",
+        "e_audio": "wadamoikö.wav",
+        "image": "wadamoikö.png"
     },
     {
         "word": "waikin",
